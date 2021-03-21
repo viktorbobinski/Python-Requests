@@ -1,0 +1,21 @@
+GET http://127.0.0.1:8080/test
+
+###
+
+POST http://127.0.0.1:8080/test_post?city=krakow
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Marek"
+}
+
+###
+
+POST http://127.0.0.1:8080/test_post
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "Viktor"
+}

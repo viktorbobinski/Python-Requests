@@ -1,11 +1,21 @@
+from flask_restful import Api, Resource
 from flask import Flask
 
 app = Flask(__name__)
+api = Api(app)
 
 
-@app.route('/test', methods=['GET'])
-def test():
-    return 'this is a test'
+names = {"tomek": {"age": 10, "gender": "male"},
+         "kasia": {"age": 21, "gender": "female"}}
 
 
-app.run(port=8080)
+class HelloWorld(Resource):
+    def get(self, name):
+        return names[name]
+
+
+api.add_resource(HelloWorld, "/hello_world/<string:name>")
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
